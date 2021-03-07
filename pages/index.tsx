@@ -1,6 +1,17 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
+export async function getStaticProps() {
+  const configData = await import(`../siteconfig.json`)
+
+  return {
+    props: {
+      title: configData.default.title,
+      description: configData.default.description,
+    },
+  }
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
