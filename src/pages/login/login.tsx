@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import firebase from '../../firebase';
+import firebase from '../../services/firebaseService';
 import useLogin from './hooks';
 
 const Login = () => {
@@ -9,13 +9,14 @@ const Login = () => {
     e.preventDefault();
     let userCredential;
     const email = emailRef.current?.value;
-    const pwd = pwdRef.current?.value;
-    if (!email || !pwd) throw new Error('empty email or pwd');
+    const pw = pwdRef.current?.value;
+    if (!email || !pw) throw new Error('empty email or pwd');
     try {
-      userCredential = await firebase.auth().signInWithEmailAndPassword(email, pwd);
-      console.log(`UserCredential -> ${userCredential}`);
+      userCredential = await firebase.instance.login({email, pw});
+      console.log(await userCredential?.getIdToken());
+      console.log(userCredential);
     } catch (e) {
-      console.log(`error -> ${e}`);
+      console.log(e);
     }
   };
 
