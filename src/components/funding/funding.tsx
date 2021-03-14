@@ -22,7 +22,7 @@ const Funding = ({fid}: {fid: string}) => {
     if(!investorList) return;
     return (
       <ul>
-        {investorList.map((x) => <li className={style.investor}>{JSON.stringify(investorList)}</li>)};
+        {investorList.map((x, idx) => <li className={style.investor} key={idx}>{JSON.stringify(investorList)}</li>)};
       </ul>
     );
   }
