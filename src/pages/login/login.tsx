@@ -1,6 +1,7 @@
 import React, { FormEvent } from 'react';
 import firebase from '../../services/firebaseService';
 import useLogin from './hooks';
+import styles from './login.module.css';
 
 const Login = () => {
   const { emailRef, pwdRef } = useLogin();
@@ -22,12 +23,16 @@ const Login = () => {
 
   return (
     <div id="login">
-      <h1>Login</h1>
-      <form>
-        <input type="email" ref={emailRef} spellCheck={false} autoFocus/>
-        <input type="password" ref={pwdRef} />
-        <button type={'submit'} onClick={login}>submit</button>
-      </form>
+      <div className={styles.container}>
+        <form className={styles.card}>
+          <h1 className={styles.title}>Fund together</h1>
+          <label className={styles.label} htmlFor="login_email">email</label>
+          <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false} autoFocus/>
+          <label className={styles.label} htmlFor="login_pw">pw</label>
+          <input id="login_pw" className={styles.input} type="password" ref={pwdRef} placeholder="password"  />
+          <button className={styles.submit} type={'submit'} onClick={login}>L o g i n</button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -5,12 +5,12 @@ import QrDescription from '../../components/qr-description';
 import style from './funding-detail.module.css';
 
 const FundingDetail = () => {
-  const params = useParams();
-  console.log(params);
+  const params = useParams<{id: string}>();
+
   return (
     <div id="funding-detail" className={style.fundingDetail}>
       <Funding />
-      <QrDescription />
+      <QrDescription fid={params.id}/>
     </div>
   );
 };
