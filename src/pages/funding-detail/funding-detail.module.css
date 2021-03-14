@@ -1,0 +1,4 @@
+.fundingDetail {
+  display: flex;
+  flex-direction: row;
+}

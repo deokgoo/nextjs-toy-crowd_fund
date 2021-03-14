@@ -2,7 +2,7 @@ import React, { FormEvent } from 'react';
 import firebaseService from '../../services/firebaseService';
 import useRegister from './hooks';
 
-const MyComponent = () => {
+const Register = () => {
   const { emailRef, pwdRef } = useRegister();
 
   const register = async (e: FormEvent) => {
@@ -30,4 +30,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default Register;

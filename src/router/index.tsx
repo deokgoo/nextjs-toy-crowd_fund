@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Login from '../pages/login';
 import Register from '../pages/register';
+import FundingDetail from '../pages/funding-detail';
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
       <Switch>
         <Route exact={true} path="/login" component={Login}/>
         <Route exact={true} path="/register" component={Register}/>
+        <Route exact={true} path="/funding/:id" component={FundingDetail} />
       </Switch>
     </BrowserRouter>
   );

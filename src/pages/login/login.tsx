@@ -21,7 +21,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div id="login">
       <h1>Login</h1>
       <form>
         <input type="email" ref={emailRef} spellCheck={false} autoFocus/>

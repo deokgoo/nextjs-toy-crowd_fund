@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 
 import 'firebase/auth';
 import 'firebase/firestore';
-import { loginType } from './type';
+import { LoginType } from './type';
 
 const {
   REACT_APP_API_KEY,
@@ -34,12 +34,12 @@ class FirebaseService {
     return FirebaseService._instance;
   }
 
-  async login({email, pw}: loginType): Promise<firebase.User|null> {
+  async login({email, pw}: LoginType): Promise<firebase.User|null> {
     const userCredential = await this.firebase.auth().signInWithEmailAndPassword(email, pw);
     return userCredential.user;
   }
 
-  async register({email, pw}: loginType): Promise<firebase.User|null> {
+  async register({email, pw}: LoginType): Promise<firebase.User|null> {
     const userCredential = await this.firebase.auth().createUserWithEmailAndPassword(email, pw);
     return userCredential.user;
   }
