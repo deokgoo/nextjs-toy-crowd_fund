@@ -16,7 +16,7 @@ const Router = () => {
         <Route exact={true} path="/login" component={Login}/>
         <Route exact={true} path="/register" component={Register}/>
         <Route exact={true} path="/funding/:id" component={FundingDetail} />
-        <Route exact={true} path="/funding" component={FundingList} />
+        <Route exact={true} path="/funding" render={() => <Login next={FundingList} path="/funding"/>}/>
       </Switch>
     </BrowserRouter>
   );

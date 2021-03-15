@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ListUnit from '../list-unit';
 import style from './list.module.css';
+import { getMyList } from '../../services/fundingService';
 
 const List = () => {
+  const [myList, setMyList] = useState<object[]>();
+  useEffect(() => {
+    const fetchData = async () => {
+      const roomList = await getMyList();
+      if(!roomList) return;
+      setMyList(roomList);
+    }
+    fetchData();
+  }, [])
   const render = () => {
-    const mapToComponent = (investorList: Array<string>) => {
-      return investorList.map((investor, i) => {
-        return (<ListUnit />);
-      });
+    const mapToComponent = (investorList: any) => {
+      if(!investorList) return;
+      console.log(investorList)
+      return investorList.map((x: any) => (<ListUnit amount={x.targetMoney} name={x.title} fid={x.fid}/>));
     };
 
     return (
@@ -20,7 +30,7 @@ const List = () => {
             Amount invested
           </div>
         </li>
-        {mapToComponent(['funding1', 'funding2', 'funding3', 'funding4'])}
+        {mapToComponent(myList)}
       </ul>
     );
   }

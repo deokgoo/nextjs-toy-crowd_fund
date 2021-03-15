@@ -33,6 +33,17 @@ class FirebaseService {
     }
     return FirebaseService._instance;
   }
+  async getIdToken(): Promise<string> {
+    const idToken = await this.firebase.auth().currentUser?.getIdToken();
+    if(!idToken) throw new Error('idToken not exist');
+    return idToken;
+  }
+
+  statusChange(callBack: (user: firebase.User | null) => void) {
+    this.firebase.auth().onAuthStateChanged(function(user) {
+      callBack(user);
+    });
+  }
 
   async login({email, pw}: LoginType): Promise<firebase.User|null> {
     const userCredential = await this.firebase.auth().signInWithEmailAndPassword(email, pw);
