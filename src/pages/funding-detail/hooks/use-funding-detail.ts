@@ -3,11 +3,11 @@ import QRCode from 'qrcode';
 
 const useFundingDetail = (fid: string) => {
 	const [qrImg, setQrImg] = useState<string>();
-	const origin = 'http://localhost:3000';
+	const origin = window.location.origin;
 	useEffect(() => {
 		const generateQrCode = async () => {
 			try {
-				const qrCode = await QRCode.toDataURL(`${origin}/${fid}`);
+				const qrCode = await QRCode.toDataURL(`${origin}/funding/${fid}`);
 				console.log(qrCode);
 				setQrImg(qrCode);
 			} catch (err) {
