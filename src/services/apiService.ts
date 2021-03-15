@@ -13,7 +13,7 @@ class ApiService {
     return ApiService._instance;
   }
 
-  private apiRequest({method, path, requestData, idToken}: {method: Method , path: string, requestData?: object, idToken?: string}) {
+  private apiRequest({method, path, payload, idToken}: {method: Method , path: string, payload?: object, idToken?: string}) {
     const url = `${REACT_APP_API_URL}${path}`;
     return axios({
       method,
@@ -21,14 +21,21 @@ class ApiService {
       headers: {
         authorization: 'Bearer ' + idToken,
       },
-      data: requestData,
+      data: payload,
     })
+  }
+
+  async getInfoByFid(fid: string): Promise<any> {
+    const method = 'GET';
+    const path = `/public/crowd/${fid}`;
+    const { data } = await this.apiRequest({method, path});
+    return data.info;
   }
 
   async getInvestorListByFid(fid: string): Promise<AmountType[]> {
     const method = 'GET';
     const path = `/public/crowd/${fid}`;
-    const { data } = await this.apiRequest({method, path})
+    const { data } = await this.apiRequest({method, path});
     return data.participate;
   }
 
@@ -36,6 +43,13 @@ class ApiService {
     const method = 'GET';
     const path = `/private/crowd`;
     const { data } = await this.apiRequest({method, path, idToken});
+    return data;
+  }
+
+  async deposit({payload, idToken}: {payload: any, idToken: string}) {
+    const method = 'POST';
+    const path = `/private/crowd/deposit`;
+    const { data } = await this.apiRequest({method, path, idToken, payload});
     return data;
   }
 }
