@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import style from './qr-description.module.css';
 import useFundingDetail from '../../pages/funding-detail/hooks/use-funding-detail';
 
