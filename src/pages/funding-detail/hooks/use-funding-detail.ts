@@ -15,7 +15,7 @@ const useFundingDetail = (fid: string) => {
 			}
 		}
 		generateQrCode();
-	}, [fid]);
+	}, [fid, origin]);
 	return {
 		qrImg,
 	}
