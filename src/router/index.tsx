@@ -13,6 +13,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact={true} path="/" component={Login}/>
         <Route exact={true} path="/login" component={Login}/>
         <Route exact={true} path="/register" component={Register}/>
         <Route exact={true} path="/funding/:id" component={FundingDetail} />
