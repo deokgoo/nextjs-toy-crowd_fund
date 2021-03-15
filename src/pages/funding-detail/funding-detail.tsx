@@ -9,7 +9,7 @@ const FundingDetail = () => {
 
   return (
     <div id="funding-detail" className={style.fundingDetail}>
-      <Funding />
+      <Funding fid={params.id} />
       <QrDescription fid={params.id}/>
     </div>
   );

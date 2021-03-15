@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './funding.module.css';
+import ApiService from '../../services/apiService';
 
-const Funding = () => {
+export type AmountType = {
+  created_at: Date,
+  money: number,
+  userId: string
+}
+
+const Funding = ({fid}: {fid: string}) => {
+  const [investorList, setInvestorList] = useState<AmountType[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const list = await ApiService.instance.getInvestorListByFid(fid);
+      setInvestorList(list);
+    }
+    fetchData();
+  }, [fid])
+
+  const render = () => {
+    if(!investorList) return;
+    return (
+      <ul>
+        {investorList.map((x, idx) => <li className={style.investor} key={idx}>{JSON.stringify(investorList)}</li>)};
+      </ul>
+    );
+  }
+
   return (
     <div id="funding" className={style.funding}>
       <div className={style.container}>
@@ -9,13 +34,13 @@ const Funding = () => {
           <h1>Title</h1>
         </div>
         <div className={style.amount}>
-          <h2>5000$</h2>
+          <h2>{investorList?.reduce<number>((accumulator, currentValue, currentIndex) => accumulator + currentValue.money, 0)}</h2>
         </div>
-        <div className="investor-list">
-
+        <div className={style.investorList}>
+          {render()}
         </div>
-        <div className="invest">
-          <button>Invest</button>
+        <div className={style.invest}>
+          <button className={style.investBtn}>Invest</button>
         </div>
       </div>
     </div>

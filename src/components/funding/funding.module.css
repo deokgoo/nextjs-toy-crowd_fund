@@ -5,21 +5,36 @@
   justify-content: center;
   align-items: center;
 }
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  width: 50%;
 }
-
-.title {
-  font-size: xx-large;
-  padding-bottom: 1rem;
+.title,
+.amount,
+.investorList {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-
-.amount {
-  font-size: x-large;
-  padding-bottom: 1rem;
+.title { font-size: xx-large; }
+.amount { font-size: x-large; }
+.investorList {
+  height: 400px;
+  overflow-y: scroll;
 }
-
+.invest { width: 100%; }
+.investBtn {
+  background-color: white;
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+.investor { padding-bottom: 0.5rem; }

@@ -7,6 +7,7 @@ import {
 import Login from '../pages/login';
 import Register from '../pages/register';
 import FundingDetail from '../pages/funding-detail';
+import FundingList from '../pages/funding-list';
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route exact={true} path="/login" component={Login}/>
         <Route exact={true} path="/register" component={Register}/>
         <Route exact={true} path="/funding/:id" component={FundingDetail} />
+        <Route exact={true} path="/funding" component={FundingList} />
       </Switch>
     </BrowserRouter>
   );
