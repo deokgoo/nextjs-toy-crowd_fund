@@ -1,9 +1,10 @@
 import React, { FormEvent } from 'react';
 import firebaseService from '../../services/firebaseService';
 import useRegister from './hooks';
+import styles from './register.module.scss';
 
 const Register = () => {
-  const { emailRef, pwdRef } = useRegister();
+  const { emailRef, pwdRef, nameRef } = useRegister();
 
   const register = async (e: FormEvent) => {
     e.preventDefault();
@@ -22,8 +23,12 @@ const Register = () => {
     <div id="register-container">
       <h1>Register</h1>
       <form>
-        <input type="email" ref={emailRef} spellCheck={false} autoFocus/>
-        <input type="password" ref={pwdRef}/>
+        <label htmlFor="#email">EMAIL</label>
+        <input id="email" type="email" ref={emailRef} spellCheck={false} autoFocus/>
+        <label htmlFor="#password">PASSWORD</label>
+        <input id="password" type="password" ref={pwdRef}/>
+        <label htmlFor="#name">NAME</label>
+        <input id="name" type="text" ref={nameRef}/>
         <button type="submit" onClick={register}>Register</button>
       </form>
     </div>
