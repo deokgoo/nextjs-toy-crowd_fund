@@ -1,5 +1,5 @@
 import React, { FormEvent } from 'react';
-import useRegisterForm from './hooks';
+import useRegisterForm from './hooks/use-register-form';
 import firebaseService from '../../services/firebaseService';
 import styles from './register-form.module.scss';
 import logo from '../../img/logo.png';
