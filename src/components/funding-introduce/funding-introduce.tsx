@@ -1,12 +1,12 @@
 import React from 'react';
-import style from './qr-description.module.css';
+import style from './funding-introduce.module.scss';
 import useFundingDetail from '../../pages/funding-detail/hooks/use-funding-detail';
 
-const QrDescription = ({fid}: {fid: string}) => {
+const FundingIntroduce = ({fid}: {fid: string}) => {
   const { qrImg } = useFundingDetail(fid);
 
   return (
-    <div id="qr-description" className={style.qrDescription}>
+    <div id="funding-introduce" className={style.qrDescription}>
       <div className={style.container}>
         <div className={style.qr}>
           <img src={qrImg} alt="qr generate"/>
@@ -19,4 +19,4 @@ const QrDescription = ({fid}: {fid: string}) => {
   );
 };
 
-export default QrDescription;
+export default FundingIntroduce;

@@ -15,6 +15,7 @@ const {
 class FirebaseService {
   private static _instance: FirebaseService;
   private firebase: firebase.app.App;
+
   private constructor() {
     this.firebase = firebase.initializeApp({
       apiKey: REACT_APP_API_KEY,
@@ -27,12 +28,14 @@ class FirebaseService {
       measurementId: `G-${REACT_APP_MEASUREMENT_ID}`,
     });
   }
+
   static get instance() {
     if(!FirebaseService._instance) {
       FirebaseService._instance = new FirebaseService();
     }
     return FirebaseService._instance;
   }
+
   async getIdToken(): Promise<string> {
     const idToken = await this.firebase.auth().currentUser?.getIdToken();
     if(!idToken) throw new Error('idToken not exist');
@@ -54,10 +57,6 @@ class FirebaseService {
     const userCredential = await this.firebase.auth().createUserWithEmailAndPassword(email, pw);
     return userCredential.user;
   }
-
-  // async verify(idTOken: string) {
-  //   this.firebase.auth().
-  // }
 }
 
 export default FirebaseService;

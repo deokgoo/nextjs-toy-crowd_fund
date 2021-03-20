@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { deposit, getFundingInfo } from '../../services/fundingService';
-import styles from './invest.module.css';
+import styles from './invest.module.scss';
 
 const Invest = () => {
   const [info, setInfo] = useState<any>();

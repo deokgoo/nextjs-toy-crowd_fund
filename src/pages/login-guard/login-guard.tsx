@@ -1,33 +1,22 @@
-import React, { FormEvent, useEffect, useState } from 'react';
-import firebase from 'firebase/app';
+import React from 'react';
+import useLogin from './hooks/use-login';
 import firebaseService from '../../services/firebaseService';
-import useLogin from './hooks';
-import styles from './login.module.css';
-import FirebaseService from '../../services/firebaseService';
+import styles from './login-guard.module.scss';
+import { ComponentEntry } from './type';
 
-const Login = ({next: Component, path}: {next?: React.FunctionComponent, path?: string}) => {
-  const { emailRef, pwdRef } = useLogin();
-  const [authed, setAuthed] = useState<firebase.User|null>(null);
-  const callBack = (user: firebase.User|null) => {
-    if(!Component||!path) return;
-    setAuthed(user);
-  }
+const LoginGuard = ({next: Component, path}: ComponentEntry) => {
+  const {
+    emailRef,
+    pwdRef,
+    authed,
+  } = useLogin({Component, path});
 
-  useEffect(() => {
-    if(!Component) return;
-    FirebaseService.instance.statusChange(callBack);
-  })
-
-  const login = async (e: FormEvent) => {
-    e.preventDefault();
-    let userCredential;
+  const login = async () => {
     const email = emailRef.current?.value;
     const pw = pwdRef.current?.value;
     if (!email || !pw) throw new Error('empty email or pwd');
     try {
-      userCredential = await firebaseService.instance.login({email, pw});
-      console.log(await userCredential?.getIdToken());
-      console.log(userCredential);
+      await firebaseService.instance.login({email, pw});
     } catch (e) {
       console.log(e);
     }
@@ -60,11 +49,9 @@ const Login = ({next: Component, path}: {next?: React.FunctionComponent, path?: 
 
   return (
     <>
-      {
-        !!authed ? renderComponent() : renderLogin()
-      }
+      {!!authed ? renderComponent() : renderLogin()}
     </>
   );
 };
 
-export default Login;
+export default LoginGuard;

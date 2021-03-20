@@ -1,45 +1,50 @@
-.container {
-  width: 100vw;
+.invest {
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #58908A;
 }
-.card {
+.container {
   width: 40%;
-  min-width: 334px;
   height: 400px;
   padding: 4rem;
   box-sizing: border-box;
   background-color: #ffffff;
   display: flex;
+  align-items: center;
   flex-direction: column;
   border-radius: 12px;
 }
 .title {
-  color: #58908A;
+  width: 100%;
   font-size: 3rem;
-  text-align: center;
-  margin-bottom: 1rem;
 }
-.label {
-  font-size: 1.5rem;
-  color: #58908A;
-  margin-bottom: 8px;
+.desc {
+  width: 100%;
+  font-size: 1rem;
 }
-
+.form {
+  display: flex;
+  margin-top: 2rem;
+  width: 100%;
+}
 .input {
-  margin-bottom: 16px;
-  padding-left: 1rem;
-  line-height: 2rem;
-  height: 2rem;
-  text-decoration: none;
   outline: none;
+  line-height: 2rem;
+  width: 80%;
 }
-
-.submit {
-  margin-top: 16px;
+.unit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+.btn {
+  width: 40%;
+  border-radius: 12px;
+  margin-top: 32px;
   border: none;
   font-size: 1rem;
   padding: 12px 0;
@@ -47,3 +52,4 @@
   color: white;
   cursor: pointer;
 }
+

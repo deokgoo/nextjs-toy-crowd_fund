@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Funding from '../../components/funding';
-import QrDescription from '../../components/qr-description';
-import style from './funding-detail.module.css';
+import FundingIntroduce from '../../components/funding-introduce';
+import style from './funding-detail.module.scss';
 
 const FundingDetail = () => {
   const params = useParams<{id: string}>();
@@ -10,7 +10,7 @@ const FundingDetail = () => {
   return (
     <div id="funding-detail" className={style.fundingDetail}>
       <Funding fid={params.id} />
-      <QrDescription fid={params.id}/>
+      <FundingIntroduce fid={params.id}/>
     </div>
   );
 };

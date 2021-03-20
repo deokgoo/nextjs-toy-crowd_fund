@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import style from './list-unit.module.css'
+import style from './investor-list-unit.module.scss'
 
-const ListUnit = ({name, amount, fid}: {name: string, amount: number, fid: string}) => {
+const InvestorListUnit = ({name, amount, fid}: {name: string, amount: number, fid: string}) => {
   const history = useHistory();
   return (
     <li className={style.item}>
@@ -17,4 +17,4 @@ const ListUnit = ({name, amount, fid}: {name: string, amount: number, fid: strin
   );
 };
 
-export default ListUnit;
+export default InvestorListUnit;
