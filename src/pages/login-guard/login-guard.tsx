@@ -1,9 +1,8 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent } from 'react';
 import useLogin from './hooks/use-login';
 import firebaseService from '../../services/firebaseService';
 import styles from './login-guard.module.scss';
 import { ComponentEntry } from './type';
-import { use100vh } from 'react-div-100vh';
 import logo from '../../img/logo.png';
 
 const LoginGuard = ({next: Component, path}: ComponentEntry) => {
