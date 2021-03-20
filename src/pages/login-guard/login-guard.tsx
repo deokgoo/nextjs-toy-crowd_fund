@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import useLogin from './hooks/use-login';
 import firebaseService from '../../services/firebaseService';
 import styles from './login-guard.module.scss';
@@ -12,7 +12,6 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
     pwdRef,
     authed,
   } = useLogin({Component, path});
-  const currentHeight = use100vh();
 
   const login = async (e: FormEvent) => {
     e.preventDefault();
@@ -36,7 +35,7 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
 
   const renderLogin = () => {
     return (
-      <div id="login" style={{height: currentHeight??'auto'}}>
+      <div id="login">
         <div className={styles.container}>
           <form className={styles.card}>
             <img className={styles.logo} src={logo} alt=""/>
