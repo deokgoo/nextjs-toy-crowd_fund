@@ -53,10 +53,6 @@ class FirebaseService {
     return userCredential.user;
   }
 
-  async register({email, pw}: LoginType): Promise<firebase.User|null> {
-    const userCredential = await this.firebase.auth().createUserWithEmailAndPassword(email, pw);
-    return userCredential.user;
-  }
 }
 
 export default FirebaseService;

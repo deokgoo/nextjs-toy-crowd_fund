@@ -1,0 +1,9 @@
+@import 'src/style/common';
+
+.container {
+  @include gradientMain;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
