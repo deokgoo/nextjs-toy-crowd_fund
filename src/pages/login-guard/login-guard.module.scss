@@ -1,47 +1,50 @@
+@import '../../style/color';
+
 .container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #58908A;
-}
-.card {
-  width: 40%;
-  min-width: 334px;
-  height: 400px;
-  padding: 4rem;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-}
-.title {
-  color: #58908A;
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.label {
-  font-size: 1.5rem;
-  color: #58908A;
-  margin-bottom: 8px;
-}
-.input {
-  margin-bottom: 16px;
-  padding-left: 1rem;
-  line-height: 2rem;
-  height: 2rem;
-  text-decoration: none;
-  outline: none;
-}
-.submit {
-  margin-top: 16px;
-  border: none;
-  font-size: 1rem;
-  padding: 12px 0;
-  background-color: #FBAF77;
-  color: white;
-  cursor: pointer;
+  background: $color_main1;
+  background: linear-gradient(90deg, $color_main1 0%, $color_main2 100%);
+  .card {
+    width: 40%;
+    min-width: 334px;
+    height: 400px;
+    padding: 4rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+  }
+  .title {
+    color: #58908A;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .label {
+    font-size: 1.5rem;
+    color: #58908A;
+    margin-bottom: 8px;
+  }
+  .input {
+    margin-bottom: 16px;
+    padding-left: 1rem;
+    line-height: 2rem;
+    height: 2rem;
+    text-decoration: none;
+    outline: none;
+  }
+  .submit {
+    margin-top: 16px;
+    border: none;
+    font-size: 1rem;
+    padding: 12px 0;
+    background-color: #FBAF77;
+    color: white;
+    cursor: pointer;
+  }
 }
