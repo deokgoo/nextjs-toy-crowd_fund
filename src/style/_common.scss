@@ -1,0 +1,6 @@
+@import 'src/style/color';
+
+@mixin gradientMain {
+  background: $color_main1;
+  background: linear-gradient(90deg, $color_main1 0%, $color_main2 100%);
+}
