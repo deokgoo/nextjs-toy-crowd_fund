@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-const useRegister = () => {
+const useRegisterForm = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const pwdRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -12,4 +12,4 @@ const useRegister = () => {
   };
 }
 
-export default useRegister;
+export default useRegisterForm;

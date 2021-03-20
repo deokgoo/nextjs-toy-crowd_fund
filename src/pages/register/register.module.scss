@@ -1,0 +1,6 @@
+@import 'src/style/common';
+
+.container {
+  @include gradientMain;
+  height: 100vh;
+}
