@@ -1,8 +1,8 @@
 import React, { FormEvent } from 'react';
 import useRegisterForm from './hooks/use-register-form';
-import firebaseService from '../../services/firebaseService';
 import styles from './register-form.module.scss';
 import logo from '../../img/logo.png';
+import ApiService from '../../services/apiService';
 
 const RegisterForm = () => {
   const { emailRef, pwdRef, nameRef } = useRegisterForm();
@@ -10,11 +10,11 @@ const RegisterForm = () => {
   const register = async (e: FormEvent) => {
     e.preventDefault();
     const email = emailRef.current?.value;
-    const pw = pwdRef.current?.value;
-    if (!email || !pw) throw new Error('empty email or pwd');
+    const password = pwdRef.current?.value;
+    const name = nameRef.current?.value;
+    if (!email || !password || !name) throw new Error('empty email or pwd or name');
     try {
-      const userCredential = await firebaseService.instance.register({email, pw});
-      console.log(userCredential);
+      await ApiService.instance.register({ email, password, name });
     } catch (e) {
       console.log(e);
     }

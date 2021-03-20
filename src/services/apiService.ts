@@ -52,6 +52,12 @@ class ApiService {
     const { data } = await this.apiRequest({method, path, idToken, payload});
     return data;
   }
+
+  async register(payload: { email: string, password: string, name: string }) {
+    const method = 'POST';
+    const path = `/public/register`;
+    await this.apiRequest({method, path, payload });
+  }
 }
 
 export default ApiService;
