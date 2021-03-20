@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import useLogin from './hooks/use-login';
 import firebaseService from '../../services/firebaseService';
 import styles from './login-guard.module.scss';
 import { ComponentEntry } from './type';
+import logo from '../../img/logo.png';
 
 const LoginGuard = ({next: Component, path}: ComponentEntry) => {
   const {
@@ -11,7 +12,8 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
     authed,
   } = useLogin({Component, path});
 
-  const login = async () => {
+  const login = async (e: FormEvent) => {
+    e.preventDefault();
     const email = emailRef.current?.value;
     const pw = pwdRef.current?.value;
     if (!email || !pw) throw new Error('empty email or pwd');
@@ -35,6 +37,7 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
       <div id="login">
         <div className={styles.container}>
           <form className={styles.card}>
+            <img className={styles.logo} src={logo} alt=""/>
             <h1 className={styles.title}>Fund together</h1>
             <label className={styles.label} htmlFor="login_email">email</label>
             <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false} autoFocus/>
