@@ -1,0 +1,50 @@
+@import '../../style/color';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1rem 0;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    color: $color_main1;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 1rem;
+
+    .label {
+      color: $color_main3;
+      padding-bottom: .5rem;
+    }
+
+    .input {
+      margin-bottom: .5rem;
+      border-radius: .5rem;
+      padding: 1rem;
+      border: 1px solid $color_main2;
+    }
+
+    .btnContainer {
+      display: flex;
+      flex-direction: row-reverse;
+
+      .btn {
+        margin-top: .5rem;
+        padding: .5rem 1rem;
+        background-color: $color_main2;
+        border: none;
+        border-radius: .5rem;
+        color: #ffffff;
+      }
+    }
+  }
+}

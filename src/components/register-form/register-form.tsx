@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react';
 import useRegisterForm from './hooks';
 import firebaseService from '../../services/firebaseService';
-import styles from './register-from.module.scss';
+import styles from './register-form.module.scss';
 
 const RegisterForm = () => {
   const { emailRef, pwdRef, nameRef } = useRegisterForm();
@@ -24,14 +24,16 @@ const RegisterForm = () => {
       <div className={styles.title}>
         <h1>Register</h1>
       </div>
-      <form>
-        <label htmlFor="#email">EMAIL</label>
-        <input id="email" type="email" ref={emailRef} spellCheck={false} autoFocus/>
-        <label htmlFor="#password">PASSWORD</label>
-        <input id="password" type="password" ref={pwdRef}/>
-        <label htmlFor="#name">NAME</label>
-        <input id="name" type="text" ref={nameRef}/>
-        <button type="submit" onClick={register}>Register</button>
+      <form className={styles.form}>
+        <label htmlFor="#email" className={styles.label}>EMAIL</label>
+        <input id="email" type="email" className={styles.input} ref={emailRef} spellCheck={false}/>
+        <label htmlFor="#password" className={styles.label}>PASSWORD</label>
+        <input id="password" type="password" className={styles.input} ref={pwdRef}/>
+        <label htmlFor="#name" className={styles.label}>NAME</label>
+        <input id="name" type="text" className={styles.input} ref={nameRef}/>
+        <div className={styles.btnContainer}>
+          <button type="submit" className={styles.btn} onClick={register}>Register</button>
+        </div>
       </form>
     </div>
   );
