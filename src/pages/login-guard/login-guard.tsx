@@ -40,7 +40,7 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
             <img className={styles.logo} src={logo} alt=""/>
             <h1 className={styles.title}>Fund together</h1>
             <label className={styles.label} htmlFor="login_email">email</label>
-            <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false} autoFocus/>
+            <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false}/>
             <label className={styles.label} htmlFor="login_pw">pw</label>
             <input id="login_pw" className={styles.input} type="password" ref={pwdRef} placeholder="password"  />
             <button className={styles.submit} type={'submit'} onClick={login}>L o g i n</button>
