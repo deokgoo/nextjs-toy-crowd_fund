@@ -1,9 +1,0 @@
-.list {
-  width: 80%;
-}
-
-.item, .name, .amount {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}

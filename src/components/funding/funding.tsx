@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './funding.module.css';
+import style from './funding.module.scss';
 import ApiService from '../../services/apiService';
 import { useHistory } from 'react-router-dom';
 
