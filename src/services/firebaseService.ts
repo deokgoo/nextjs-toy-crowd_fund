@@ -53,6 +53,10 @@ class FirebaseService {
     return userCredential.user;
   }
 
+  async logout(): Promise<void> {
+    return await this.firebase.auth().signOut();
+  }
+
 }
 
 export default FirebaseService;
