@@ -22,15 +22,16 @@ const RegisterForm = () => {
 
   return (
     <form id="register-form" className={styles.card}>
+      <button className={styles.back}>Back</button>
       <img className={styles.logo} src={logo} alt=""/>
-      <h1 className={styles.title}>Register</h1>
-      <label htmlFor="#email" className={styles.label}>EMAIL</label>
+      <h1 className={styles.title}>Sign up</h1>
+      <label htmlFor="#email" className={styles.label}>Email</label>
       <input id="email" type="email" className={styles.input} placeholder="email" ref={emailRef} spellCheck={false} />
-      <label htmlFor="#password" className={styles.label}>PASSWORD</label>
+      <label htmlFor="#password" className={styles.label}>Password</label>
       <input id="password" type="password" className={styles.input} placeholder="password" ref={pwdRef}/>
-      <label htmlFor="#name" className={styles.label}>NAME</label>
+      <label htmlFor="#name" className={styles.label}>Name</label>
       <input id="name" type="text" className={styles.input} placeholder="name" ref={nameRef}/>
-      <button type={'submit'} className={styles.submit} onClick={register}>Register</button>
+      <button type={'submit'} className={styles.submit} onClick={register}>Sign up</button>
     </form>
   );
 };
