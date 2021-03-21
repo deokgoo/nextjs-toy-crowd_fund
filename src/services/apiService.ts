@@ -58,6 +58,12 @@ class ApiService {
     const path = `/public/register`;
     await this.apiRequest({method, path, payload });
   }
+
+  async createCrowdFunding({payload, idToken}: {payload: {title: string, desc: string, targetMoney: number}, idToken: string}) {
+    const method = 'POST';
+    const path = `/private/crowd/create`;
+    await this.apiRequest({method, path, idToken, payload})
+  }
 }
 
 export default ApiService;

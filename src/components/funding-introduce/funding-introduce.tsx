@@ -6,13 +6,13 @@ const FundingIntroduce = ({fid}: {fid: string}) => {
   const { qrImg } = useFundingDetail(fid);
 
   return (
-    <div id="funding-introduce" className={style.qrDescription}>
+    <div id="funding-introduce" className={style.fundingIntroduce}>
       <div className={style.container}>
         <div className={style.qr}>
           <img src={qrImg} alt="qr generate"/>
         </div>
         <div className={style.description}>
-          this is my crowd funding. show me the money.
+          Funding together
         </div>
       </div>
     </div>

@@ -5,15 +5,11 @@ import style from './investor-list-unit.module.scss'
 const InvestorListUnit = ({name, amount, fid}: {name: string, amount: number, fid: string}) => {
   const history = useHistory();
   return (
-    <li className={style.item}>
-      <div className={style.name}>
-        {name}
-      </div>
-      <div className={style.amount}>
-        funding amount: {amount}円
-      </div>
-      <button onClick={() => history.push(`/funding/${fid}`)}>link</button>
-    </li>
+    <div className={style.item}>
+      <div className={style.name}>{name}</div>
+      <div className={style.amount}>Goal: {amount}円</div>
+      <button className={style.link} onClick={() => history.push(`/funding/${fid}`)}>Link</button>
+    </div>
   );
 };
 

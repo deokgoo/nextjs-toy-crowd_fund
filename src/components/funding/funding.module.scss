@@ -1,51 +1,31 @@
 .funding {
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container {
+  height: 500px;
+  width: 90%;
+  max-width: 300px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid #282c34;
-  border-radius: 5px;
-  padding: 1rem 2rem;
-  width: 50%;
   background-color: white;
-}
-.title,
-.amount,
-.investorList {
-  width: 100%;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-.title { font-size: xx-large; }
-.amount { font-size: x-large; }
-.investorList {
-  height: 400px;
-  overflow-y: scroll;
-}
-.invest { width: 100%; }
-.investBtn {
-  background-color: white;
-  border: 1px solid #282c34;
-  border-radius: 5px;
-  width: 100%;
-  cursor: pointer;
-  outline: none;
-}
-.investor {
-  display: flex;
-  padding-bottom: 0.5rem;
-}
-.investor__name {
-  margin-right: 2rem;
+  border-radius: 12px;
+  .title {
+    flex: 10%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+  .container {
+    flex: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+  .investBtn {
+    flex: 10%;
+  }
 }
 
-.investor__money {
-
-}

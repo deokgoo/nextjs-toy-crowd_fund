@@ -1,5 +1,19 @@
-.item, .name, .amount {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@import '/src/style/color';
+.item {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: $color_main4;
+  border-radius: 12px;
+  .name {
+    margin-bottom: 0.4rem;
+  }
+  .amount {
+    margin-bottom: 0.8rem;
+  }
+  .link {
+    width: 100%;
+    border: none;
+    padding: 0.2rem;
+    letter-spacing: 3px;
+  }
 }
