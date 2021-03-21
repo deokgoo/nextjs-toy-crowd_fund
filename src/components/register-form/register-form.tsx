@@ -5,7 +5,7 @@ import logo from '../../img/logo.png';
 import ApiService from '../../services/apiService';
 
 const RegisterForm = () => {
-  const { emailRef, pwdRef, nameRef } = useRegisterForm();
+  const { emailRef, pwdRef, nameRef, history } = useRegisterForm();
 
   const register = async (e: FormEvent) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const RegisterForm = () => {
 
   return (
     <form id="register-form" className={styles.card}>
-      <button className={styles.back}>Back</button>
+      <button className={styles.back} type={'submit'} onClick={() => history.push('/login')}>Back</button>
       <img className={styles.logo} src={logo} alt=""/>
       <h1 className={styles.title}>Sign up</h1>
       <label htmlFor="#email" className={styles.label}>Email</label>
