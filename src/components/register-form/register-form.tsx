@@ -14,6 +14,16 @@ const RegisterForm = () => {
     setErrors
   } = useRegisterForm();
 
+
+  const getCookie = () => {
+    const cookie = document.cookie;
+    if(!cookie) return;
+    const wantCookie = cookie.split('; ').find(row => row.startsWith('next='));
+    if(!wantCookie) return;
+    document.cookie= `next=/funding`;
+    return wantCookie.split('=')[1];
+  }
+
   const register = async (e: FormEvent) => {
     e.preventDefault();
     if (!await isValid()) return;
@@ -23,7 +33,9 @@ const RegisterForm = () => {
     if (!email || !password || !name) throw new Error('empty email or pwd or name');
     try {
       await ApiService.instance.register({ email, password, name });
-      history.push('/login');
+      const path = getCookie();
+      if(!path) return;
+      history.push(path);
     } catch (e) {
       setErrors({
         email: false,
@@ -50,7 +62,7 @@ const RegisterForm = () => {
     <form id="register-form" className={styles.card}>
       <button className={styles.back} type={'submit'} onClick={() => history.push('/login')}>Back</button>
       <img className={styles.logo} src={logo} alt=""/>
-      <h1 className={styles.title}>Sign up</h1>
+      <h1 className={styles.title}>新規登録</h1>
       <label htmlFor="#email" className={styles.label}>Email</label>
       <input id="email" type="email" className={styles.input} placeholder="email" ref={emailRef} spellCheck={false} />
       <div className={`${styles.errMsg} ${errors.email ? '' : styles.invalid}`}>Email is not matching</div>

@@ -35,6 +35,7 @@ const Invest = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>{info?.title}</h1>
         <h2 className={styles.desc}>{info?.desc}</h2>
+        <div className={styles.label}>金額</div>
         <div className={styles.form}>
           <input className={styles.input} type="number" min="0" ref={inputRef}/>
           <div className={styles.unit}>円</div>
@@ -46,7 +47,7 @@ const Invest = () => {
           <button className={styles.amount} onClick={() => addMoney(20000)}>+ 20,000</button>
         </div>
         <div className={styles.msgContainer}>
-          <h3 className={styles.msgTitle}>Message</h3>
+          <h3 className={styles.msgTitle}>メッセージ</h3>
           <textarea name="msg" id="msg" className={styles.msg} ref={msgRef} />
         </div>
         <button className={styles.btn} onClick={onClick}>入金</button>

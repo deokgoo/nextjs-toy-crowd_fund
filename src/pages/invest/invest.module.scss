@@ -10,9 +10,9 @@
   .container {
     height: 600px;
     width: 90%;
-    max-height: 650px;
+    max-height: 700px;
     max-width: 334px;
-    padding: 0 1rem;
+    padding: 24px;
     margin-top: 96px;
     box-sizing: border-box;
     background-color: #ffffff;
@@ -23,15 +23,23 @@
     .title {
       width: 100%;
       font-size: 3rem;
+      margin-bottom: 12px;
     }
     .desc {
       width: 100%;
       font-size: 1rem;
     }
+    .label {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
     .form {
       display: flex;
-      margin-top: 2rem;
       width: 100%;
+      font-weight: 700;
       .input {
         outline: none;
         line-height: 2rem;
@@ -84,6 +92,14 @@
       background-color: $color_main2;
       color: white;
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .invest {
+    .container {
+      margin-top: 48px;
     }
   }
 }

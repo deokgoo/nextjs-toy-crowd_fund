@@ -60,16 +60,16 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
           <form className={styles.card}>
             <img className={styles.logo} src={logo} alt=""/>
             <h1 className={styles.title}>Fund together</h1>
-            <label className={styles.label} htmlFor="login_email">Email</label>
+            <label className={styles.label} htmlFor="login_email">メール</label>
             <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false} autoComplete={'off'}/>
-            <div className={`${styles.errMsg} ${errors.email ? styles.invalid : ''}`}>Email is not matching</div>
-            <label className={styles.label} htmlFor="login_pw">Password</label>
-            <input id="login_pw" className={styles.input} type="password" ref={pwdRef} placeholder="password"  />
-            <div className={`${styles.errMsg} ${errors.password ? styles.invalid : ''}`}>Please enter your password</div>
-            <div className={`${styles.unAuthed} ${errors.authed ? styles.invalid : ''}`}>Please check your email or password</div>
-            <button className={styles.submit} type={'submit'} onClick={login}>Sign in</button>
+            <div className={`${styles.errMsg} ${errors.email ? styles.invalid : ''}`}>メールが合わないタイプです。</div>
+            <label className={styles.label} htmlFor="login_pw">パスワード</label>
+            <input id="login_pw" className={styles.input} type="password" ref={pwdRef} placeholder="password"/>
+            <div className={`${styles.errMsg} ${errors.password ? styles.invalid : ''}`}>パスワードを入力してください。</div>
+            <div className={`${styles.unAuthed} ${errors.authed ? styles.invalid : ''}`}>メールアドレスまたはパスワードを確認してください。</div>
+            <button className={styles.submit} type={'submit'} onClick={login}>ログイン</button>
             <div className={styles.line}/>
-            <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>Sign up</button>
+            <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>新規登録</button>
           </form>
         </div>
       </div>
