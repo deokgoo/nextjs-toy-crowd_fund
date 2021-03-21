@@ -23,6 +23,7 @@ const RegisterForm = () => {
     if (!email || !password || !name) throw new Error('empty email or pwd or name');
     try {
       await ApiService.instance.register({ email, password, name });
+      history.push('/login');
     } catch (e) {
       setErrors({
         email: false,
