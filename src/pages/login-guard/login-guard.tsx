@@ -11,17 +11,23 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
     emailRef,
     pwdRef,
     history,
+    errors,
+    setErrors,
   } = useLogin({Component, path});
 
   const login = async (e: FormEvent) => {
     e.preventDefault();
+    if(!await isValid()) return;
     const email = emailRef.current?.value;
     const pw = pwdRef.current?.value;
     if (!email || !pw) throw new Error('empty email or pwd');
     try {
       await firebaseService.instance.login({email, pw});
     } catch (e) {
-      console.log(e);
+      setErrors({
+        ...errors,
+        authed: true,
+      });
     }
   };
 
@@ -33,6 +39,19 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
     }
   }
 
+  const isValid = async () => {
+    // eslint-disable-next-line no-control-regex
+    const matchEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    const newErrors = {
+      email: !emailRef.current?.value.match(matchEmail),
+      password: !pwdRef.current?.value,
+      authed: errors.authed,
+    };
+    if(!pwdRef || !emailRef) return;
+    await setErrors(newErrors);
+    return !newErrors.email && !newErrors.password;
+  }
+
   const renderLogin = () => {
     return (
       <div id="login">
@@ -41,9 +60,12 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
             <img className={styles.logo} src={logo} alt=""/>
             <h1 className={styles.title}>Fund together</h1>
             <label className={styles.label} htmlFor="login_email">Email</label>
-            <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false}/>
+            <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false} autoComplete={'off'}/>
+            <div className={`${styles.errMsg} ${errors.email ? styles.invalid : ''}`}>Email is not matching</div>
             <label className={styles.label} htmlFor="login_pw">Password</label>
             <input id="login_pw" className={styles.input} type="password" ref={pwdRef} placeholder="password"  />
+            <div className={`${styles.errMsg} ${errors.password ? styles.invalid : ''}`}>Please enter your password</div>
+            <div className={`${styles.unAuthed} ${errors.authed ? styles.invalid : ''}`}>Please check your email or password</div>
             <button className={styles.submit} type={'submit'} onClick={login}>Sign in</button>
             <div className={styles.line}/>
             <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>Sign up</button>

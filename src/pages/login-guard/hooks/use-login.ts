@@ -8,6 +8,7 @@ const useLogin = ({Component, path}: any) => {
   const pwdRef = useRef<HTMLInputElement>(null);
   const history = useHistory();
   const [authed, setAuthed] = useState<firebase.User|null>(null);
+  const [errors, setErrors] = useState<{email: boolean, password: boolean, authed: boolean}>({email: false, password: false, authed: false});
 
   const callBack = (user: firebase.User|null) => {
     if(!Component||!path) return;
@@ -23,7 +24,9 @@ const useLogin = ({Component, path}: any) => {
     emailRef,
     pwdRef,
     authed,
-    history
+    history,
+    errors,
+    setErrors,
   };
 };
 
