@@ -97,8 +97,10 @@
   }
 }
 
-@media screen and (max-width: 540px) {
-  .card {
-    margin-top: 64px;
+@media screen and (max-width: 720px) {
+  .container {
+    .card {
+      margin-top: 48px;
+    }
   }
 }
