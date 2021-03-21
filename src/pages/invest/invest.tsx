@@ -47,7 +47,7 @@ const Invest = () => {
         </div>
         <div className={styles.msgContainer}>
           <h3 className={styles.msgTitle}>Message</h3>
-          <textarea name="msg" id="msg" className={styles.msg} />
+          <textarea name="msg" id="msg" className={styles.msg} ref={msgRef} />
         </div>
         <button className={styles.btn} onClick={onClick}>入金</button>
       </div>
