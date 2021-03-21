@@ -69,7 +69,7 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
             <div className={`${styles.unAuthed} ${errors.authed ? styles.invalid : ''}`}>メールアドレスまたはパスワードを確認してください。</div>
             <button className={styles.submit} type={'submit'} onClick={login}>ログイン</button>
             <div className={styles.line}/>
-            <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>新規登録</button>
+            <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>会員登録</button>
           </form>
         </div>
       </div>
