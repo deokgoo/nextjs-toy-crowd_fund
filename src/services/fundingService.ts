@@ -14,3 +14,8 @@ export const deposit = async ({payload}: {payload: any}): Promise<any> => {
   const idToken = await FirebaseService.instance.getIdToken();
   return ApiService.instance.deposit({idToken, payload})
 }
+
+export const createCrowdFunding = async (payload: {title: string, desc: string, targetMoney: number}) => {
+  const idToken = await FirebaseService.instance.getIdToken();
+  return ApiService.instance.createCrowdFunding({payload, idToken})
+}

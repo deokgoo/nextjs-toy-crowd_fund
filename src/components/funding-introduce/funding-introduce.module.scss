@@ -1,19 +1,24 @@
-.qrDescription {
-  width: 50%;
-  height: 100vh;
+.fundingIntroduce {
+  width: 90%;
+  max-width: 300px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .description {
   color: white;
   padding: 3rem 0;
+}
+
+@media screen and (max-width: 540px) {
+  .fundingIntroduce {
+    align-items: start;
+  }
 }

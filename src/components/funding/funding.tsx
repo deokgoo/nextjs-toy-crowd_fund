@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 export type AmountType = {
   created_at: Date,
   money: number,
-  userId: string
+  userId: string,
+  msg: string,
 }
 
 const Funding = ({fid}: {fid: string}) => {
@@ -40,20 +41,16 @@ const Funding = ({fid}: {fid: string}) => {
 
   return (
     <div id="funding" className={style.funding}>
+      <h2 className={style.title}>{crowdInfo?.title}</h2>
+      <div className={style.amount}>
+        <h2>{investorList?.reduce<number>((accumulator, currentValue, currentIndex) => accumulator + parseInt(String(currentValue.money)), 0)} ¥</h2>
+      </div>
       <div className={style.container}>
-        <div className={style.title}>
-          <h1>{crowdInfo?.title}</h1>
-        </div>
-        <div className={style.amount}>
-          <h2>{investorList?.reduce<number>((accumulator, currentValue, currentIndex) => accumulator + parseInt(String(currentValue.money)), 0)}</h2>
-        </div>
         <div className={style.investorList}>
           {render()}
         </div>
-        <div className={style.invest}>
-          <button className={style.investBtn} onClick={() => history.push(`/funding/${fid}/invest`)}>Invest</button>
-        </div>
       </div>
+      <button className={style.investBtn} onClick={() => history.push(`/funding/${fid}/invest`)}>Invest</button>
     </div>
   );
 };

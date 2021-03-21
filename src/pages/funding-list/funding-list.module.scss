@@ -1,8 +1,36 @@
+@import '/src/style/common';
+
 .fundingList {
-  height: 100vh;
   width: 100vw;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: #58908A;
+  @include gradientMain;
+  .leftCard,
+  .rightCard {
+    height: 500px;
+    width: 40%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 1rem;
+    .title {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .itemWrapper {
+      height: 90%;
+      overflow-y: scroll;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .fundingList {
+    flex-direction: column;
+    padding: 64px 0;
+    .leftCard {margin-bottom: 64px;}
+    .leftCard,
+    .rightCard {width: 90%;}
+  }
 }
