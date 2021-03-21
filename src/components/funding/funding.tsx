@@ -7,6 +7,7 @@ export type AmountType = {
   created_at: Date,
   money: number,
   userId: string,
+  name: string,
   msg: string,
 }
 
@@ -15,27 +16,46 @@ const Funding = ({fid}: {fid: string}) => {
   const [crowdInfo, setCrowdInfo] = useState<any>();
   const history = useHistory();
   useEffect(() => {
-    const fetchData = async () => {
-      const list = await ApiService.instance.getInvestorListByFid(fid);
+    const fetchCrowdInfo = async () => {
       const info = await ApiService.instance.getInfoByFid(fid);
-
-      setInvestorList(list);
       setCrowdInfo(info);
     }
-    fetchData();
-  }, [fid])
+    const fetchInvestor = async () => {
+      const list = await ApiService.instance.getInvestorListByFid(fid);
+      await setInvestorList(list);
+    }
+    fetchCrowdInfo();
+    setInterval(() => {
+      fetchInvestor();
+    }, 1500);
+  }, [fid]);
+
+  const getFormatDate = (created: Date): string => {
+    const date = new Date(created);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+
+    return `${year}-${month}-${day} ${hour}:${minute}`;
+  }
 
   const render = () => {
     if(!investorList) return<></>
     return (
-      <ul>
+      <div className={style.investorList}>
         {investorList.map((x, idx) =>
-          <li className={style.investor} key={idx}>
-            <div className={style.investor__name}>{x.userId}</div>
-            <div className={style.investor__money}>{x.money}</div>
-          </li>
+          <div className={style.investItem}>
+            <div className={style.wrapper} key={idx}>
+              <div className={style.name}>{x.name}</div>
+              <div className={style.money}>{x.money}¥</div>
+            </div>
+            <div className={style.created}>{getFormatDate(x.created_at)}</div>
+            <div className={style.msg}>{x.msg}</div>
+          </div>
         )}
-      </ul>
+      </div>
     );
   }
 
@@ -43,7 +63,7 @@ const Funding = ({fid}: {fid: string}) => {
     <div id="funding" className={style.funding}>
       <h2 className={style.title}>{crowdInfo?.title}</h2>
       <div className={style.amount}>
-        <h2>{investorList?.reduce<number>((accumulator, currentValue, currentIndex) => accumulator + parseInt(String(currentValue.money)), 0)} ¥</h2>
+        <h2>{investorList?.reduce<number>((accumulator, currentValue) => accumulator + parseInt(String(currentValue.money)), 0)} ¥</h2>
       </div>
       <div className={style.container}>
         <div className={style.investorList}>
