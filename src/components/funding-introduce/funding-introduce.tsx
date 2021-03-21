@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './funding-introduce.module.scss';
 import useFundingDetail from '../../pages/funding-detail/hooks/use-funding-detail';
+import SignOut from '../sign-out';
 
 const FundingIntroduce = ({fid}: {fid: string}) => {
   const { qrImg } = useFundingDetail(fid);
@@ -14,6 +15,7 @@ const FundingIntroduce = ({fid}: {fid: string}) => {
         <div className={style.description}>
           Funding together
         </div>
+        <SignOut />
       </div>
     </div>
   );

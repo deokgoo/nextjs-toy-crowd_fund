@@ -1,0 +1,13 @@
+@import '../../style/color';
+
+.signOutBtn {
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 5px 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.invalid {
+  display: none;
+}
