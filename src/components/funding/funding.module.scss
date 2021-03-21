@@ -29,6 +29,7 @@
   }
   .investorList {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     .investItem {
@@ -39,7 +40,6 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-
         .name,
         .money {
           font-weight: 700;

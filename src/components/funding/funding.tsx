@@ -34,7 +34,7 @@ const Funding = ({fid}: {fid: string}) => {
     const date = new Date(created);
     const year = date.getFullYear();
     const month = date.getMonth();
-    const day = date.getDay();
+    const day = date.getDate();
     const hour = date.getHours();
     const minute = date.getMinutes();
 
