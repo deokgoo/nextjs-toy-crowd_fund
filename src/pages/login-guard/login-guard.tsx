@@ -25,7 +25,8 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
       await firebaseService.instance.login({email, pw});
     } catch (e) {
       setErrors({
-        ...errors,
+        email: false,
+        password: false,
         authed: true,
       });
     }
