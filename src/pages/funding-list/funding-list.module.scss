@@ -1,15 +1,23 @@
 @import '/src/style/common';
+@import '/src/style/color';
 
 .fundingList {
   width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
   @include gradientMain;
+  .wrapper {
+    width: 100%;
+    display: flex;
+    margin-top: 94px;
+    justify-content: space-around;
+    align-items: center;
+  }
   .leftCard,
   .rightCard {
-    height: 500px;
+    min-height: 500px;
     width: 40%;
     background-color: white;
     border-radius: 12px;
@@ -23,14 +31,26 @@
       overflow-y: scroll;
     }
   }
+  .tmp {
+    height: 2rem;
+    width: 80%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    background-color: $color_main5;
+    color: white;
+  }
 }
 
 @media screen and (max-width: 540px) {
   .fundingList {
-    flex-direction: column;
-    padding: 64px 0;
-    .leftCard {margin-bottom: 64px;}
-    .leftCard,
-    .rightCard {width: 90%;}
+    .wrapper {
+      margin-top: 0;
+      flex-direction: column;
+      padding: 64px 0;
+      .leftCard {margin-bottom: 64px;}
+      .leftCard,
+      .rightCard {width: 90%;}
+    }
+
   }
 }

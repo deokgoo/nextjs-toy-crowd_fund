@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styles from './funding-list.module.scss';
 import { getMyList } from '../../services/fundingService';
 import InvestorListUnit from '../../components/investor-list-unit';
+import { useHistory } from 'react-router-dom';
 
 const FundingList = () => {
   const [myList, setMyList] = useState<object[]>();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,12 +53,15 @@ const FundingList = () => {
 
   return (
     <div id="funding-list" className={styles.fundingList}>
-      <div className={styles.leftCard}>
-        {renderCreatedFundingList()}
+      <div className={styles.wrapper}>
+        <div className={styles.leftCard}>
+          {renderCreatedFundingList()}
+        </div>
+        <div className={styles.rightCard}>
+          {renderParticipatedFundingList()}
+        </div>
       </div>
-      <div className={styles.rightCard}>
-        {renderParticipatedFundingList()}
-      </div>
+      <button className={styles.tmp} onClick={() => history.push('/funding/create')}>create Funding</button>
     </div>
   );
 };
