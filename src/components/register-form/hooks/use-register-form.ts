@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const useRegisterForm = () => {
@@ -6,12 +6,17 @@ const useRegisterForm = () => {
   const pwdRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const history = useHistory();
+  const [errors, setErrors] = useState<{ email: boolean, password: boolean, name: boolean }>(
+    { email: false, password: false, name: false }
+    );
 
   return {
     emailRef,
     pwdRef,
     nameRef,
     history,
+    errors,
+    setErrors,
   };
 }
 
