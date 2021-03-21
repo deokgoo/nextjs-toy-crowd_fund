@@ -1,3 +1,36 @@
-.funding-create {
+@import '/src/style/common';
 
+.fundingCreate {
+  width: 100vw;
+  height: 100vh;
+  min-height: 800px;
+  display: flex;
+  justify-content: center;
+  @include gradientMain;
+  .card {
+    height: 500px;
+    width: 90%;
+    max-height: 550px;
+    max-width: 300px;
+    padding: 0 2rem;
+    justify-content: center;
+    margin-top: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-family: 'Play', sans-serif;
+  }
+  .label {
+    width: 100%;
+    font-size: 0.8rem;
+    color: $color_main3;
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+  input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
