@@ -44,9 +44,9 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
             <input id="login_email" className={styles.input} type="email" ref={emailRef} placeholder="email" spellCheck={false}/>
             <label className={styles.label} htmlFor="login_pw">Password</label>
             <input id="login_pw" className={styles.input} type="password" ref={pwdRef} placeholder="password"  />
-            <button className={styles.submit} type={'submit'} onClick={login}>L o g i n</button>
+            <button className={styles.submit} type={'submit'} onClick={login}>Sign in</button>
             <div className={styles.line}/>
-            <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>R e g i s t e r</button>
+            <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>Sign up</button>
           </form>
         </div>
       </div>
