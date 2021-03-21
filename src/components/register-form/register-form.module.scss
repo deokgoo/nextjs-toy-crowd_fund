@@ -3,14 +3,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 334px;
-  height: 450px;
+  height: 500px;
+  width: 70%;
   max-height: 550px;
+  max-width: 300px;
+  padding: 0 2rem;
+  justify-content: center;
+  margin-top: 96px;
   background-color: #ffffff;
   border-radius: 12px;
-  padding: 3rem;
-  margin-top: 6rem;
   align-items: center;
+  font-family: 'Play', sans-serif;
   .logo {
     height: 40px;
     width: 40px;
