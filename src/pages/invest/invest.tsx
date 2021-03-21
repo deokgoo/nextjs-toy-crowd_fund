@@ -10,11 +10,6 @@ const Invest = () => {
   const history = useHistory();
   const params = useParams<{id: string}>();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fetchData = async () => {
-    const data = await getFundingInfo(params.id);
-    setInfo(data);
-  }
   const onClick = async () => {
     try {
       await deposit({payload: { fid: params.id, money: inputRef.current?.value, msg: msgRef.current?.value }});
@@ -29,9 +24,12 @@ const Invest = () => {
     inputRef.current.value = String(sum);
   }
   useEffect(() => {
+    const fetchData = async () => {
+      const data = await getFundingInfo(params.id);
+      setInfo(data);
+    };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [params]);
   return (
     <div className={styles.invest}>
       <div className={styles.container}>
