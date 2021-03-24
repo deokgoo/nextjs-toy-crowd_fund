@@ -62,7 +62,7 @@ const RegisterForm = () => {
     <form id="register-form" className={styles.card}>
       <button className={styles.back} type={'submit'} onClick={() => history.push('/login')}>戻る</button>
       <img className={styles.logo} src={logo} alt=""/>
-      <h1 className={styles.title}>ユーザー登録</h1>
+      <h1 className={styles.title}>Sign up</h1>
       <label htmlFor="#email" className={styles.label}>メール</label>
       <input id="email" type="email" className={styles.input} placeholder="メール" ref={emailRef} spellCheck={false} />
       <div className={`${styles.errMsg} ${errors.email ? '' : styles.invalid}`}>メールの形式が正しくありません。</div>
@@ -72,7 +72,7 @@ const RegisterForm = () => {
       <label htmlFor="#name" className={styles.label}>名前</label>
       <input id="name" type="text" className={styles.input} placeholder="名前" ref={nameRef}/>
       <div className={`${styles.errMsg} ${errors.name ? '' : styles.invalid}`}>名前が合いません。</div>
-      <button type={'submit'} className={styles.submit} onClick={register}>Sign up</button>
+      <button type={'submit'} className={styles.submit} onClick={register}>登録</button>
     </form>
   );
 };
