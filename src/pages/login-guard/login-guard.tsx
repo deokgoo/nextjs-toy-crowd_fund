@@ -70,6 +70,7 @@ const LoginGuard = ({next: Component, path}: ComponentEntry) => {
             <button className={styles.submit} type={'submit'} onClick={login}>ログイン</button>
             <div className={styles.line}/>
             <button className={styles.register} type={'submit'} onClick={() => history.push('/register')}>会員登録</button>
+            <h5 style={{marginTop: '30px', color: '#004063'}}>present deok.9</h5>
           </form>
         </div>
       </div>

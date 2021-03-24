@@ -70,7 +70,7 @@ const Funding = ({fid}: {fid: string}) => {
           {render()}
         </div>
       </div>
-      <button className={style.investBtn} onClick={() => history.push(`/funding/${fid}/invest`)}>Invest</button>
+      <button className={style.investBtn} onClick={() => history.push(`/funding/${fid}/invest`)}>入金</button>
     </div>
   );
 };
