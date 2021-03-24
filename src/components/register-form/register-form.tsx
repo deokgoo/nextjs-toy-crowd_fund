@@ -62,7 +62,7 @@ const RegisterForm = () => {
     <form id="register-form" className={styles.card}>
       <button className={styles.back} type={'submit'} onClick={() => history.push('/login')}>戻る</button>
       <img className={styles.logo} src={logo} alt=""/>
-      <h1 className={styles.title}>会員登録</h1>
+      <h1 className={styles.title}>ユーザー登録</h1>
       <label htmlFor="#email" className={styles.label}>メール</label>
       <input id="email" type="email" className={styles.input} placeholder="メール" ref={emailRef} spellCheck={false} />
       <div className={`${styles.errMsg} ${errors.email ? '' : styles.invalid}`}>メールの形式が正しくありません。</div>
