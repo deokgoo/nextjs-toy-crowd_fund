@@ -5,6 +5,7 @@ import styles from './invest.module.scss';
 
 const Invest = () => {
   const [info, setInfo] = useState<any>();
+  const [money, setMoney] = useState<number>(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const msgRef = useRef<HTMLTextAreaElement>(null);
   const history = useHistory();
@@ -30,6 +31,11 @@ const Invest = () => {
     };
     fetchData();
   }, [params]);
+  const numericVerify = (evt: React.FormEvent<HTMLInputElement>) => {
+    const regex = /^[0-9]*$/
+    if(!regex.test(evt.currentTarget.value)) return;
+    setMoney(parseInt(evt.currentTarget.value));
+  }
   return (
     <div className={styles.invest}>
       <div className={styles.container}>
@@ -37,7 +43,7 @@ const Invest = () => {
         <h2 className={styles.desc}>{info?.desc}</h2>
         <div className={styles.label}>金額</div>
         <div className={styles.form}>
-          <input className={styles.input} type="number" min="0" ref={inputRef}/>
+          <input className={styles.input} min="0" ref={inputRef} onChange={numericVerify} value={money}/>
           <div className={styles.unit}>円</div>
         </div>
         <div className={styles.amountContainer}>
