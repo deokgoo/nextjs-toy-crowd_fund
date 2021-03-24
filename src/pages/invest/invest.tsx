@@ -32,9 +32,13 @@ const Invest = () => {
     fetchData();
   }, [params]);
   const numericVerify = (evt: React.FormEvent<HTMLInputElement>) => {
-    const regex = /^[0-9]*$/
-    if(!regex.test(evt.currentTarget.value)) return;
-    setMoney(parseInt(evt.currentTarget.value));
+    const regex = /^[0-9]+$/
+    if(!regex.test(evt.currentTarget.value)) {
+      setMoney(0);
+    }else {
+      setMoney(parseInt(evt.currentTarget.value));
+    }
+
   }
   return (
     <div className={styles.invest}>
