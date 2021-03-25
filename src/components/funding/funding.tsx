@@ -49,7 +49,7 @@ const Funding = ({fid}: {fid: string}) => {
           <div className={style.investItem}>
             <div className={style.wrapper} key={idx}>
               <div className={style.name}>{x.name}</div>
-              <div className={style.money}>{x.money}¥</div>
+              <div className={style.money}>¥{x.money}</div>
             </div>
             <div className={style.created}>{getFormatDate(x.created_at)}</div>
             <div className={style.msg}>{x.msg}</div>
@@ -63,7 +63,7 @@ const Funding = ({fid}: {fid: string}) => {
     <div id="funding" className={style.funding}>
       <h2 className={style.title}>{crowdInfo?.title}</h2>
       <div className={style.amount}>
-        <h2>{investorList?.reduce<number>((accumulator, currentValue) => accumulator + parseInt(String(currentValue.money)), 0)} ¥</h2>
+        <h2>¥{investorList?.reduce<number>((accumulator, currentValue) => accumulator + parseInt(String(currentValue.money)), 0)}</h2>
       </div>
       <div className={style.container}>
         <div className={style.investorList}>
