@@ -1,0 +1,20 @@
+.menuContainer {
+  transition: background ease .3s, top ease .3s .3s, transform ease .3s;
+  .menuItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  @keyframes offoabox {
+    0% {
+      transform: scale(3.0);
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

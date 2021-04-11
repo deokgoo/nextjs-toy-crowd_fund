@@ -56,59 +56,57 @@
       overflow-y: scroll;
     }
   }
-  .hamburgerMenu {
-    width: 60px;
-    height: 45px;
+  .hamburgerContainer {
     position: fixed;
-    bottom: 30px;
+    bottom: 35px;
     right: 30px;
-    margin: 50px auto;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
-    cursor: pointer;
-    .hamburgerIngredient {
-      display: block;
-      position: absolute;
-      height: 9px;
-      width: 100%;
-      background: #0a4375;
-      border-radius: 9px;
-      opacity: 1;
-      left: 0;
+    .hamburgerMenu {
+      width: 60px;
+      height: 45px;
       transform: rotate(0deg);
-      transition: .25s ease-in-out;
-      transform-origin: left center;
+      transition: .5s ease-in-out;
+      cursor: pointer;
+      .hamburgerIngredient {
+        display: block;
+        position: absolute;
+        height: 9px;
+        width: 100%;
+        background: #0a4375;
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+        transform-origin: left center;
+      }
+
+      .hamburgerIngredient:nth-child(1) {
+        top: 0;
+      }
+
+      .hamburgerIngredient:nth-child(2) {
+        top: 18px;
+      }
+
+      .hamburgerIngredient:nth-child(3) {
+        top: 36px;
+      }
     }
-    .hamburgerIngredient:nth-child(1) {
-      top: 0;
-    }
-    .hamburgerIngredient:nth-child(2) {
-      top: 18px;
-    }
-    .hamburgerIngredient:nth-child(3) {
-      top: 36px;
-    }
-  }
-  .open {
-    .hamburgerIngredient:nth-child(1) {
-      transform: rotate(45deg);
-      top: -3px;
-      left: 8px;
-    }
-    .hamburgerIngredient:nth-child(2) {
-      width: 0;
-      opacity: 0;
-    }
-    .hamburgerIngredient:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 39px;
-      left: 8px;
+    .open {
+      .hamburgerIngredient:nth-child(1) {
+        transform: rotate(45deg);
+        top: -3px;
+        left: 8px;
+      }
+      .hamburgerIngredient:nth-child(2) {
+        width: 0;
+        opacity: 0;
+      }
+      .hamburgerIngredient:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 39px;
+        left: 8px;
+      }
     }
   }
   .tmp {

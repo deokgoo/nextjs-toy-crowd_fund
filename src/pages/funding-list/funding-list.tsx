@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './funding-list.module.scss';
 import { getMyList } from '../../services/fundingService';
 import InvestorListUnit from '../../components/investor-list-unit';
+import Menu from '../../components/menu';
 import { useHistory } from 'react-router-dom';
 
 const FundingList = () => {
@@ -58,10 +59,13 @@ const FundingList = () => {
           {renderList()}
         </div>
       </div>
-      <div id="hamburger-menu" className={`${styles.hamburgerMenu} ${onMenu ? styles.open : ''}`} onClick={() => setOnMenu(!onMenu)}>
-        <span className={styles.hamburgerIngredient} />
-        <span className={styles.hamburgerIngredient} />
-        <span className={styles.hamburgerIngredient} />
+      <div className={styles.hamburgerContainer}>
+        {onMenu ? <Menu /> : ''}
+        <div id="hamburger-menu" className={`${styles.hamburgerMenu} ${onMenu ? styles.open : ''}`} onClick={() => setOnMenu(!onMenu)}>
+          <span className={styles.hamburgerIngredient} />
+          <span className={styles.hamburgerIngredient} />
+          <span className={styles.hamburgerIngredient} />
+        </div>
       </div>
       <button className={styles.tmp} onClick={() => history.push('/funding/create')}>create Funding</button>
     </div>
