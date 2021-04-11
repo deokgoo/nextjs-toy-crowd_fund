@@ -6,6 +6,7 @@
   min-height: 800px;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
   @include gradientMain;
   .card {
     height: 500px;
@@ -13,7 +14,7 @@
     max-height: 550px;
     max-width: 300px;
     padding: 0 2rem;
-    justify-content: center;
+    padding-top: 80px;
     margin-top: 96px;
     display: flex;
     flex-direction: column;
@@ -24,6 +25,7 @@
   }
   .label {
     width: 100%;
+    box-sizing: border-box;
     font-size: 0.8rem;
     color: $color_main3;
     margin-top: 10px;
@@ -32,5 +34,6 @@
   input {
     width: 100%;
     margin-bottom: 1rem;
+    box-sizing: border-box;
   }
 }

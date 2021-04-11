@@ -11,6 +11,7 @@ import FundingDetail from '../pages/funding-detail';
 import FundingList from '../pages/funding-list';
 import Invest from '../pages/invest';
 import { ComponentEntry } from '../pages/login-guard/type';
+import TestPage from '../pages/test/testPage';
 
 const Router = () => {
   const renderComponent = ({next, path}: ComponentEntry) => () => <LoginGuard next={next} path={path}/>;
@@ -19,6 +20,7 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact={true} path="/" render={renderComponent({next: FundingList, path: '/funding'})}/>
+        <Route exact={true} path="/test" render={renderComponent({next: TestPage, path: '/test'})}/>
         <Route exact={true} path="/login" render={renderComponent({next: FundingList, path: '/funding'})}/>
         <Route exact={true} path="/funding" render={renderComponent({next: FundingList, path: '/funding'})}/>
         <Route exact={true} path="/funding/create" render={renderComponent({next: FundingCreate, path: '/funding/create'})}/>
