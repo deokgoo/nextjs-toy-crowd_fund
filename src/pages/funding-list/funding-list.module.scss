@@ -26,6 +26,31 @@
       font-size: 2rem;
       margin-bottom: 16px;
     }
+    .toggleBtn {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      .on,
+      .off {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        cursor: pointer;
+        padding: 5px 0;
+      }
+      .on {
+        background-color: #007BFF;
+        color: white;
+      }
+      .off {
+        color: #007BFF;
+        background-color: white;
+      }
+    }
     .itemWrapper {
       height: 90%;
       overflow-y: scroll;
