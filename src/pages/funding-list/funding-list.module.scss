@@ -29,7 +29,7 @@
     .toggleBtn {
       display: flex;
       flex-direction: row;
-      border: 1px solid #007BFF;
+      border: 1px solid $color_main2;
       border-radius: 5px;
       overflow: hidden;
       margin-bottom: 1rem;
@@ -43,11 +43,11 @@
         padding: 5px 0;
       }
       .on {
-        background-color: #007BFF;
+        background-color: $color_main2;
         color: white;
       }
       .off {
-        color: #007BFF;
+        color: $color_main2;
         background-color: white;
       }
     }

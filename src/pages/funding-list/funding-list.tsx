@@ -27,22 +27,22 @@ const FundingList = () => {
 
     return toggle ? (
       <>
-        <div className={styles.title}>作った<br/>ファンディング</div>
         <div className={styles.toggleBtn}>
           <div className={styles.on}>作ったカード</div>
           <div className={styles.off} onClick={() => setToggle(false)}>参加したカード</div>
         </div>
+        <div className={styles.title}>作った<br/>ファンディング</div>
         <div className={styles.itemWrapper}>
           {mapToComponent(myList)}
         </div>
       </>
     ) : (
       <>
-        <div className={styles.title}>参加した<br/>ファンディング</div>
         <div className={styles.toggleBtn}>
           <div className={styles.off} onClick={() => setToggle(true)}>作ったカード</div>
           <div className={styles.on}>参加したカード</div>
         </div>
+        <div className={styles.title}>参加した<br/>ファンディング</div>
         <div className={styles.itemWrapper}>
           {mapToComponent(myList)}
         </div>
