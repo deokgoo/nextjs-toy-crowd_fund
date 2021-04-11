@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 const FundingList = () => {
   const [myList, setMyList] = useState<object[]>();
   const [toggle, setToggle] = useState<boolean>(true);
+  const [onMenu, setOnMenu] = useState<boolean>(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -56,6 +57,11 @@ const FundingList = () => {
         <div className={styles.leftCard}>
           {renderList()}
         </div>
+      </div>
+      <div id="hamburger-menu" className={`${styles.hamburgerMenu} ${onMenu ? styles.open : ''}`} onClick={() => setOnMenu(!onMenu)}>
+        <span className={styles.hamburgerIngredient} />
+        <span className={styles.hamburgerIngredient} />
+        <span className={styles.hamburgerIngredient} />
       </div>
       <button className={styles.tmp} onClick={() => history.push('/funding/create')}>create Funding</button>
     </div>
